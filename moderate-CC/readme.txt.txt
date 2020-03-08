@@ -1,0 +1,1 @@
+This custom command includes two DIFFERENT commands. They are used WITH yagpdb moderation features, should an error occour please let 𝕊𝕙𝕒𝕕𝕠𝕨ℕ𝕚𝕘𝕙𝕥#2845 (580567048745385994) know.
