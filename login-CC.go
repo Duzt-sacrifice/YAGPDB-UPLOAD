@@ -4,7 +4,7 @@
 
 {{$args := parseArgs 2 "Invalid Arguments Provided, Command usage: `-login password time`"
     (carg "string" "Password Used")
-    (carg "string" "Time in area")}}
+    (carg "duration" "Time in area")}}
 
 {{/* $maxtime := seconds */}}
 {{$pwu := ($args.Get 0)}}
@@ -17,7 +17,7 @@
     {{/* if not (gt (toInt $duration) (toInt $maxtime)) */}}
         {{addRoleID ($roles.Get $pwu)}}
         {{removeRoleID ($roles.Get $pwu) $duration}}
-        {{sendMessage nil (joinStr "" "Access Granted: " .User.Username " - " $pwu ": " $time ".")}}
+        {{sendMessage nil (joinStr "" "Access Granted: " .User.Username " - " (humanizeDurationSeconds $duration) ": " $time ".")}}
     {{/* else */}}
         {{/* Please dont specify more than 12 hours, Command usage: `-login password time` */}}
     {{/* end */}}
