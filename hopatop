@@ -1,17 +1,18 @@
 {{/*
 	This command posts one of YAG's un-patented "topics" in channels of your choice. This leads to a fun game of hopping around discord channels to reveal deep truths about yourself. Try it and see. 
- 
+
 	Recommended trigger: Interval
 */}}
- 
+
 {{/* CONFIGURATION VALUES START */}}
-{{/* replace channel ids with any number of channels you want the command to run in.*/}}
 
+{{$channels := (cslice <CHANNEL IDS> )}} {{/* replace channel ids with any number of channels you want the command to run in.*/}}
+{{$nocics := <NUMBER OF CHANNEL-IDS YOU PUT IN THE CSLICE>}} {{/* Ex, 10 */}}
 
-{{$channels := (cslice <CHANNEL IDS> )}}
+{{/* CONFIGURATION VALUES End */}}
 {{$no := "error"}}
 {{$a := (toInt (dbGet 0 "topicCount").Value)}}
-{{if gt $a 10}}
+{{if gt $a $nocics}}
 {{dbSet 0 "topicCount" 0}}
 {{$no = 0}}
 {{else}}
