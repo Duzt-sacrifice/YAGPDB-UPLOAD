@@ -3,7 +3,7 @@
 
 {{/* Change the above only (unless you know what you are doing) */}}
 
-{{$message :=  (getMessage $suggestionChannel (index  .CmdArgs 0))}}
+{{$message :=  (getMessage $suggestionsChannel (index  .CmdArgs 0))}}
 {{$embed := index $message.Embeds 0}}
 {{$args := (joinStr " " .CmdArgs)}}
 
